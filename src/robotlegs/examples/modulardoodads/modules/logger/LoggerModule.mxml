@@ -8,10 +8,10 @@
         <![CDATA[
             import org.robotlegs.core.IContext;
             import org.robotlegs.core.IInjector;
+            import robotlegs.examples.modulardoodads.modules.logger.skins.LoggingTextArea;
             import org.robotlegs.utilities.modular.core.IModule;
             import org.robotlegs.utilities.modular.core.IModuleContext;
             
-            import robotlegs.examples.modulardoodads.modules.logger.skins.LoggingTextArea;
             
             protected var context:IModuleContext;
  

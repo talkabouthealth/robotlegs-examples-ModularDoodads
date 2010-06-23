@@ -18,8 +18,16 @@ package robotlegs.examples.modulardoodads.view
         {
             addViewListener(ModuleCommandTriggerEvent.TRIGGER_MODULE_COMMAND, dispatchToModules);
             addModuleListener(DoodadModuleEvent.REMOVE, handleDoodadRemoved);
+			
+			eventMap.mapListener(eventDispatcher, ModuleCommandTriggerEvent.INIT, onInit);
+			dispatch(new ModuleCommandTriggerEvent(ModuleCommandTriggerEvent.INIT));
         }
         
+		private function onInit(event:ModuleCommandTriggerEvent):void{
+			trace("onInit 0");
+			trace("onInit: " + view);
+			trace("onInit 1");
+		}
         private function handleDoodadRemoved(event:DoodadModuleEvent):void
         {
             //the last thing clicked is the close button IN the module. This gives the FocusManager
