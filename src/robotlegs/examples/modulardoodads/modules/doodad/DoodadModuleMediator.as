@@ -11,6 +11,9 @@ package robotlegs.examples.modulardoodads.modules.doodad
     {
         [Inject]
         public var view:DoodadModule;
+		
+		[Inject]
+		public var model:DoodadModel;
         
         private var madeRequest:Boolean;
         
@@ -20,6 +23,9 @@ package robotlegs.examples.modulardoodads.modules.doodad
             addViewListener(DoodadModuleEvent.REMOVE, handleRemove);
             addModuleListener(DoodadModuleEvent.DO_STUFF_REQUESTED, handleDoStuffRequest, DoodadModuleEvent);
             addContextListener(DoodadModuleEvent.FLASH_YOUR_DOODAD, handleDoodadFlashRequest);
+			
+			trace("view: " + view);
+			trace("model: " + model);
         }
         
         private function handleRemove(event:DoodadModuleEvent):void

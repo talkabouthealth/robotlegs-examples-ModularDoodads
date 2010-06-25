@@ -8,7 +8,10 @@ package robotlegs.examples.modulardoodads
     import robotlegs.examples.modulardoodads.modules.doodad.DoodadModule;
     import robotlegs.examples.modulardoodads.modules.logger.LoggerModule;
     import robotlegs.examples.modulardoodads.view.ModuleDoodadsMediator;
-    
+	
+    import robotlegs.examples.modulardoodads.StartupCommand;
+	import robotlegs.examples.modulardoodads.common.events.ModuleCommandTriggerEvent;
+	
     /**
      * This Context extend ModuleContext so that it will create the injector mappings
      * for the <code>ModuleEventDispatcher</code> and <code>ModuleCommandMap</code>.
@@ -25,6 +28,10 @@ package robotlegs.examples.modulardoodads
             viewMap.mapType(DoodadModule);
             
             mediatorMap.mapView(ModularDoodads, ModuleDoodadsMediator);
+			
+			//STARTUP
+			commandMap.mapEvent( ModuleCommandTriggerEvent.STARTUP, StartupCommand, ModuleCommandTriggerEvent, true );
+			this.dispatchEvent(new ModuleCommandTriggerEvent(ModuleCommandTriggerEvent.STARTUP));
         }
     }
 }

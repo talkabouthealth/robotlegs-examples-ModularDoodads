@@ -6,7 +6,8 @@ package robotlegs.examples.modulardoodads.modules.logger
     import org.robotlegs.utilities.modular.mvcs.ModuleContext;
     
     import robotlegs.examples.modulardoodads.modules.logger.view.LoggerModuleMediator;
-    
+    import robotlegs.examples.modulardoodads.modules.doodad.DoodadModel;
+	
     public class LoggerModuleContext extends ModuleContext
     {
         /**
@@ -24,6 +25,7 @@ package robotlegs.examples.modulardoodads.modules.logger
         
         override public function startup():void
         {
+			injector.mapSingleton(DoodadModel);
             trace("WE HAVE SUB-CONTEXT!!");
             mediatorMap.mapView(LoggerModule, LoggerModuleMediator);
         }
